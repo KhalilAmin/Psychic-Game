@@ -1,12 +1,38 @@
+
+
 // Create variables for game
 
-var emptyString = "";
-var alphabet = "abcdefghijklmnopqrstuvwxyz";
-var getRandomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
-var randomLetter = getRandomLetter;
+var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l',
+'m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 
-while (emptyString.length < 6) {
-    emptyString += randomLetter;
-    emptyString ++;
-    } 
-    console.log(emptyString);
+// Variables for tracking our wins, losses and ties. They begin at 0.
+var wins = 0;
+var losses = 0;
+var guesses = 9;
+
+var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+
+console.log(computerChoice)
+
+
+
+// When the user presses a key, it will run the following function...
+document.onkeypress = function(event) {
+var userGuess = event.key;
+console.log (userGuess);
+
+if(userGuess === computerChoice){
+    wins++;
+}else{
+    guesses--;
+}
+
+if(guesses === 0){
+    losses++
+}
+   
+document.getElementById('wins').innerHTML = "Wins: " + wins;
+document.getElementById('losses').innerHTML = "losses: " + losses;
+document.getElementById('guesses').innerHTML = "Guesses left: " + guesses;
+
+}
