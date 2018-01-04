@@ -25,12 +25,17 @@ if(userGuess === computerChoice){
 }
 
 if(guesses === 0){
-    losses++
+    losses++;
+    alert("You Lose!")
+}
+
+if(wins === 10){
+    alert("You Win!")
 }
    
 document.getElementById('wins').innerHTML = "Wins: " + wins;
 document.getElementById('losses').innerHTML = "Losses: " + losses;
 document.getElementById('guesses').innerHTML = "Guesses left: " + guesses;
-document.getElementById('letterGuessed').innerHTML = "Your Guesses so far: " + letterGuessed;
+document.getElementById('letterGuessed').innerHTML = "Your Guesses so far: {" + letterGuessed + "}";
 
 }
